@@ -36,8 +36,8 @@ echo.
 echo  Select your option:
 echo.
 echo   1:  Activate Internet Download Manager
-echo   2:  Dectivate Internet Download Manager
-echo   3:  Fix RegKey Permission after IDM Update
+echo   2:  Deactivate Internet Download Manager
+echo   3:  Fix RegKey-Permission after a IDM Update
 echo   4:  Exit
 
 :select
@@ -215,9 +215,9 @@ cls
 echo.
 echo.
 echo.
-echo Activation done!
+echo The activation process is done!
 echo.
-echo For main dialog press any key...
+echo To go back to the main dialog, press any key...
 pause>nul
 goto maindlg
 
@@ -273,9 +273,9 @@ cls
 echo.
 echo.
 echo.
-echo Dectivation done!
+echo Deactivation done!
 echo.
-echo For main dialog press any key...
+echo To retunr to the main dialog, press any key...
 pause>nul
 goto maindlg
 
@@ -287,9 +287,9 @@ cls
 echo.
 echo.
 echo.
-echo Fixing RegKey permission after update done!
+echo Fixing RegKey-permission after update done!
 echo.
-echo For main dialog press any key...
+echo To return to the main dialog, press any key...
 pause>nul
 goto maindlg
 
