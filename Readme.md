@@ -13,11 +13,10 @@ Usage
 Run IDM_Activator.bat and choose your option
 
 
-
-Benefits
+Benefits compared to other solutions
 =========
 
-* [No blind cleaning](https://gist.github.com/CHEF-KOCH/652efc945b53ba1d4a6725f63016c586) or guessing which reg entries are necessary to delete, it will detect and delete them 
-* Only catches IDM CLSID reg keys
-* Works with every update
+* [No blind cleaning](https://gist.github.com/CHEF-KOCH/652efc945b53ba1d4a6725f63016c586) or guessing which registry entries are necessary to delete, it will detect and delete them automatically.
+* Only catches IDM CLSID registry keys
+* Works with every IDM update
 * Open source

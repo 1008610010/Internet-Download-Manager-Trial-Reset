@@ -68,10 +68,20 @@ taskkill /f /im IDMan.exe
 del key1.txt /q
 del key2.txt /q
 
+
+SetACL.exe -on "HKCU\SOFTWARE\Classes\CLSID\{436D67E1-2FB3-4A6C-B3CD-FF8A41B0664D}" -ot reg -actn setowner -ownr "n:Administrators"
+SetACL.exe -on "HKCU\SOFTWARE\Classes\CLSID\{436D67E1-2FB3-4A6C-B3CD-FF8A41B0664D}" -ot reg -actn setprot -op "dacl:np"
+SetACL.exe -on "HKCU\SOFTWARE\Classes\CLSID\{4764030F-2733-45B9-AE62-3D1F4F6F2861}" -ot reg -actn setowner -ownr "n:Administrators"
+SetACL.exe -on "HKCU\SOFTWARE\Classes\CLSID\{4764030F-2733-45B9-AE62-3D1F4F6F2861}" -ot reg -actn setprot -op "dacl:np"
+SetACL.exe -on "HKCU\SOFTWARE\Classes\CLSID\{5312C54E-A385-46B7-B200-ABAF81B03935}" -ot reg -actn setowner -ownr "n:Administrators"
+SetACL.exe -on "HKCU\SOFTWARE\Classes\CLSID\{5312C54E-A385-46B7-B200-ABAF81B03935}" -ot reg -actn setprot -op "dacl:np"
 SetACL.exe -on "HKCU\SOFTWARE\Classes\CLSID\{6DDF00DB-1234-46EC-8356-27E7B2051192}" -ot reg -actn setowner -ownr "n:Administrators"
 SetACL.exe -on "HKCU\SOFTWARE\Classes\CLSID\{6DDF00DB-1234-46EC-8356-27E7B2051192}" -ot reg -actn setprot -op "dacl:np"
 SetACL.exe -on "HKCU\SOFTWARE\Classes\CLSID\{07999AC3-058B-40BF-984F-69EB1E554CA7}" -ot reg -actn setowner -ownr "n:Administrators"
 SetACL.exe -on "HKCU\SOFTWARE\Classes\CLSID\{07999AC3-058B-40BF-984F-69EB1E554CA7}" -ot reg -actn setprot -op "dacl:np"
+
+reg delete HKCU\SOFTWARE\Classes\CLSID\{436D67E1-2FB3-4A6C-B3CD-FF8A41B0664D} /f
+reg delete HKCU\SOFTWARE\Classes\CLSID\{5312C54E-A385-46B7-B200-ABAF81B03935} /f
 reg delete HKCU\SOFTWARE\Classes\CLSID\{6DDF00DB-1234-46EC-8356-27E7B2051192} /f
 reg delete HKCU\SOFTWARE\Classes\CLSID\{07999AC3-058B-40BF-984F-69EB1E554CA7} /f
 reg delete HKCU\SOFTWARE\DownloadManager /v tvfrdt /f
@@ -106,7 +116,7 @@ cls
 echo.
 echo.
 echo.
-echo Wait a moment for catching some nasty IDM registry keys...
+echo Wait a moment to catch some nasty IDM registry keys...
 
 for /F "tokens=2*" %%A in ('reg query "HKCU\SOFTWARE\DownloadManager" /v ExePath') do set IDMAN=%%B
 
@@ -196,6 +206,7 @@ EndLocal
 set /p key1=<key1.txt
 set /p key2=<key2.txt
 
+SetACL.exe -on "HKCU\SOFTWARE\Classes\CLSID\{0055C089-8582-441B-A0BF-17B458C2A3A8}" -ot reg -actn setowner -ownr "n:System" -actn setprot -op "dacl:p_nc" -actn clear -clr "dacl"
 SetACL.exe -on "HKCU\SOFTWARE\Classes\CLSID\{6DDF00DB-1234-46EC-8356-27E7B2051192}" -ot reg -actn setowner -ownr "n:System" -actn setprot -op "dacl:p_nc" -actn clear -clr "dacl"
 SetACL.exe -on "HKCU\SOFTWARE\Classes\CLSID\{D5B91409-A8CA-4973-9A0B-59F713D25671}" -ot reg -actn setowner -ownr "n:System" -actn setprot -op "dacl:p_nc"
 SetACL.exe -on "%key1%" -ot reg -actn setowner -ownr "n:System" -actn setprot -op "dacl:p_nc"
@@ -275,7 +286,7 @@ echo.
 echo.
 echo Deactivation done!
 echo.
-echo To retunr to the main dialog, press any key...
+echo To return to the main dialog, press any key...
 pause>nul
 goto maindlg
 
@@ -287,7 +298,7 @@ cls
 echo.
 echo.
 echo.
-echo Fixing RegKey-permission after update done!
+echo Fixing RegKey-Permission after an IDM update, it's done!
 echo.
 echo To return to the main dialog, press any key...
 pause>nul
